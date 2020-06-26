@@ -1,0 +1,65 @@
+public class NumberWizard : MonoBehaviour
+{
+    // Start is called before the first frame update------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    int max = 10;
+    int min = 1;
+    int guess = 500;
+
+    void Start()
+    {
+        StartGame();
+    }
+
+    // Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    void Update()
+    {   //Up Arrow
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Debug.Log("So is it smaller or bigger than..." +guess);
+            min = guess;
+            NextGuess(); 
+        }
+        //Down Arrow
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Debug.Log("So is it smaller or bigger than..." +guess);
+            max = guess;
+            NextGuess();
+        }
+        //Enter Key
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("Aren't I smart?");
+            StartGame();
+        }
+    }
+
+    //Function 1: StartGame------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    void StartGame()
+    {
+        max = 1000;
+        min = 1;
+        guess = 500;
+
+        Debug.Log("Welcome to Number Wizard");
+        Debug.Log("Pick a number");
+        Debug.Log("Highest is: " + max);
+        Debug.Log("Lowest is: " + min);
+        Debug.Log("Push Up = Higher, Push Down = Lower, Push Enter = Correct");
+        max = max + 1;
+    }
+
+    //Function 2: NextGuess------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    void NextGuess()
+    {
+        guess = (max + min) / 2;
+        Debug.Log(guess);
+    }
+} //end-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
